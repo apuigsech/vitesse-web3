@@ -1,0 +1,4 @@
+forge-std/=lib/contracts/forge-std/src/
+
+@lib=lib/contracts
+@src=src/contracts

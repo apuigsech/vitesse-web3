@@ -1,0 +1,6 @@
+[profile.default]
+src = "src/contracts"
+test = "test/contracts"
+libs = ["lib/contracts"]
+
+# See more config options https://github.com/foundry-rs/foundry/tree/master/config
