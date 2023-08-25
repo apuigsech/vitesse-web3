@@ -1,4 +1,15 @@
 <script setup lang="ts">
+import WalletConnect from './components/WalletConnect.vue'
+import {
+  MetaMaskConnector,
+} from 'vue-dapp'
+
+let connectors: Connector[] = [
+  new MetaMaskConnector({
+    appUrl: 'http://localhost:3000',
+  }),
+]
+
 // https://github.com/vueuse/head
 // you can use this to manipulate the document head in any components,
 // they will be rendered correctly in the html results with vite-ssg

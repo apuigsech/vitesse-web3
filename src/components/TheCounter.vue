@@ -1,18 +1,20 @@
 <script setup lang="ts">
-const props = defineProps<{
-  initial: number
-}>()
+import { storeToRefs } from 'pinia'
 
-const { count, inc, dec } = useCounter(props.initial)
+import { useCounterStore } from '~/stores/counter'
+const countStore = useCounterStore()
+
+const { incCounter, decCounter } = useCounterStore()
+const { count } = storeToRefs(countStore)
 </script>
 
 <template>
   <div>
     {{ count }}
-    <button class="inc" @click="inc()">
+    <button class="inc" @click="incCounter()">
       +
     </button>
-    <button class="dec" @click="dec()">
+    <button class="dec" @click="decCounter()">
       -
     </button>
   </div>

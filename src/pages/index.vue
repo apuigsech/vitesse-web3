@@ -1,56 +1,33 @@
 <script setup lang="ts">
-defineOptions({
-  name: 'IndexPage',
-})
-const user = useUserStore()
-const name = ref(user.savedName)
+import WalletConnect from '../components/WalletConnect.vue'
+import {
+  MetaMaskConnector,
+} from 'vue-dapp'
 
-const router = useRouter()
-function go() {
-  if (name.value)
-    router.push(`/hi/${encodeURIComponent(name.value)}`)
-}
+import { storeToRefs } from 'pinia'
+import { useCounterStore } from '~/stores/counter'
+const countStore = useCounterStore()
+const { incCounter, decCounter } = useCounterStore()
+const { count } = storeToRefs(countStore)
 
-const { t } = useI18n()
+let connectors: Connector[] = [
+  new MetaMaskConnector({
+    appUrl: 'http://localhost:3000',
+  }),
+]
+
 </script>
 
 <template>
-  <div>
-    <div text-4xl>
-      <div i-carbon-campsite inline-block />
-    </div>
-    <p>
-      <a rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank">
-        Vitesse
-      </a>
-    </p>
-    <p>
-      <em text-sm opacity-75>{{ t('intro.desc') }}</em>
-    </p>
-
-    <div py-4 />
-
-    <TheInput
-      v-model="name"
-      :placeholder="t('intro.whats-your-name')"
-      autocomplete="false"
-      @keydown.enter="go"
-    />
-    <label class="hidden" for="input">{{ t('intro.whats-your-name') }}</label>
-
-    <div>
-      <button
-        m-3 text-sm btn
-        :disabled="!name"
-        @click="go"
-      >
-        {{ t('button.go') }}
-      </button>
-    </div>
-  </div>
+  <vd-board
+    :connectors="connectors"
+    dark
+  >
+  </vd-board>  
+  <TheCounter />
 </template>
 
 <route lang="yaml">
 meta:
-  layout: home
+  layout: default
 </route>

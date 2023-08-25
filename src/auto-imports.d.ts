@@ -136,6 +136,8 @@ declare global {
   const useColorMode: typeof import('@vueuse/core')['useColorMode']
   const useConfirmDialog: typeof import('@vueuse/core')['useConfirmDialog']
   const useCounter: typeof import('@vueuse/core')['useCounter']
+  const useCounterStore: typeof import('./stores/counter')['useCounterStore']
+  const useCryptoStore: typeof import('./stores/counter')['useCryptoStore']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVar: typeof import('@vueuse/core')['useCssVar']
   const useCssVars: typeof import('vue')['useCssVars']
@@ -428,6 +430,7 @@ declare module 'vue' {
     readonly useColorMode: UnwrapRef<typeof import('@vueuse/core')['useColorMode']>
     readonly useConfirmDialog: UnwrapRef<typeof import('@vueuse/core')['useConfirmDialog']>
     readonly useCounter: UnwrapRef<typeof import('@vueuse/core')['useCounter']>
+    readonly useCounterStore: UnwrapRef<typeof import('./stores/counter')['useCounterStore']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVar: UnwrapRef<typeof import('@vueuse/core')['useCssVar']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
@@ -550,7 +553,6 @@ declare module 'vue' {
     readonly useTransition: UnwrapRef<typeof import('@vueuse/core')['useTransition']>
     readonly useUrlSearchParams: UnwrapRef<typeof import('@vueuse/core')['useUrlSearchParams']>
     readonly useUserMedia: UnwrapRef<typeof import('@vueuse/core')['useUserMedia']>
-    readonly useUserStore: UnwrapRef<typeof import('./stores/user')['useUserStore']>
     readonly useVModel: UnwrapRef<typeof import('@vueuse/core')['useVModel']>
     readonly useVModels: UnwrapRef<typeof import('@vueuse/core')['useVModels']>
     readonly useVibrate: UnwrapRef<typeof import('@vueuse/core')['useVibrate']>
@@ -714,6 +716,7 @@ declare module '@vue/runtime-core' {
     readonly useColorMode: UnwrapRef<typeof import('@vueuse/core')['useColorMode']>
     readonly useConfirmDialog: UnwrapRef<typeof import('@vueuse/core')['useConfirmDialog']>
     readonly useCounter: UnwrapRef<typeof import('@vueuse/core')['useCounter']>
+    readonly useCounterStore: UnwrapRef<typeof import('./stores/counter')['useCounterStore']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVar: UnwrapRef<typeof import('@vueuse/core')['useCssVar']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
@@ -836,7 +839,6 @@ declare module '@vue/runtime-core' {
     readonly useTransition: UnwrapRef<typeof import('@vueuse/core')['useTransition']>
     readonly useUrlSearchParams: UnwrapRef<typeof import('@vueuse/core')['useUrlSearchParams']>
     readonly useUserMedia: UnwrapRef<typeof import('@vueuse/core')['useUserMedia']>
-    readonly useUserStore: UnwrapRef<typeof import('./stores/user')['useUserStore']>
     readonly useVModel: UnwrapRef<typeof import('@vueuse/core')['useVModel']>
     readonly useVModels: UnwrapRef<typeof import('@vueuse/core')['useVModels']>
     readonly useVibrate: UnwrapRef<typeof import('@vueuse/core')['useVibrate']>
